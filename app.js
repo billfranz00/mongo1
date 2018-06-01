@@ -21,15 +21,15 @@ const { Instructor } = require("./models");
 // CRUD Operations
 
 // Create
-const billy = new Instructor({ firstName: "Billy"});
-billy
-	.save()
-	.then(newBilly => {
-		console.log(newBilly);
-	})
-	.catch(err => {
-		console.log("ERror saving...", err);
-	});
+// const billy = new Instructor({ firstName: "Billy"});
+// billy
+// 	.save()
+// 	.then(newBilly => {
+// 		console.log(newBilly);
+// 	})
+// 	.catch(err => {
+// 		console.log("ERror saving...", err);
+// 	});
 
 // const billy = Instructor.create({ firstName: "Billy", lastName: "Franz" })
 // 	.then(newInst => {
@@ -40,13 +40,13 @@ billy
 // 	});
 
 // Read
-// Instructor.find({}) // Find multiple
-// 	.then(instructors => {
-// 		console.log(instructors);
-// 	})
-// 	.catch(err => {
-// 		console.log("error finding!", err);
-// 	});
+Instructor.find({}) // Find multiple
+	.then(instructors => {
+		console.log(instructors);
+	})
+	.catch(err => {
+		console.log("error finding!", err);
+	});
 
 // Instructor.findOne({firstName: 'Billy'}) // Find single record
 // 	.then(inst => {
@@ -64,22 +64,44 @@ billy
 // 		console.log("error finding by ID!", err);
 // 	});
 
-const query = Instructor.findOne({firstName: "Billy"}); // Query Builder Syntax
+// const query = Instructor.findOne({firstName: "Billy"}); // Query Builder Syntax
 
-query.select("firstName lastName"); // 
+// query.select("firstName lastName"); // 
 
-query
-	.exec()
-	.then(inst => {
-		console.log(inst);
-		console.log('%s has the last name "%s".', inst.firstName, inst.lastName);
-	})
-	.catch(err => {
-		console.log("ERROR with querying", err);
-	});
+// query
+// 	.exec()
+// 	.then(inst => {
+// 		console.log(inst);
+// 		console.log('%s has the last name "%s".', inst.firstName, inst.lastName);
+// 	})
+// 	.catch(err => {
+// 		console.log("ERROR with querying", err);
+// 	});
 
 // Update
+// Instructor.update({}, {isHilarious: true})
+// 	.then(inst => {
+// 		console.log(inst);
+// 	})
+// 	.catch(err => {
+// 		console.log("ERror updating...", err);
+// 	});
 
+// Instructor.findOneAndUpdate({firstName: 'Billy'}, {favoriteColors: ['blue', 'black']})
+// 	.then(inst => {
+// 		console.log(inst);
+// 	})
+// 	.catch(err => {
+// 		console.log("Error updating single record", err);
+// 	});
+
+// Instructor.findByIdAndUpdate('5b11a33e61598f308437d571', {firstName: 'Big Bill'})
+// 	.then(inst => {
+// 		console.log(inst);
+// 	})
+// 	.catch(err => {
+// 		console.log("Error updating by Id...", err);
+// 	});
 
 app.listen(3000, () => {
 	console.log('Bro, you connected, head over to localhost:3000...');
