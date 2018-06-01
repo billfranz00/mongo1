@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise;
 
 mongoose
 	.connect("mongodb://localhost/mongo1", {
-		// useMongoClient: true
+		// useMongoClient: true // depreciated
 	})
 	.then(() => {
 		console.log("You're connected to mongo dough...");
@@ -32,6 +32,14 @@ const { Instructor } = require("./models");
 // 	});
 
 // const billy = Instructor.create({ firstName: "Billy", lastName: "Franz" })
+// 	.then(newInst => {
+// 		console.log(newInst);
+// 	})
+// 	.catch(err => {
+// 		console.log("Error creating", err);
+// 	});
+
+// const erin = Instructor.create({ firstName: "Erin", lastName: "Franz" })
 // 	.then(newInst => {
 // 		console.log(newInst);
 // 	})
@@ -79,7 +87,7 @@ Instructor.find({}) // Find multiple
 // 	});
 
 // Update
-// Instructor.update({}, {isHilarious: true})
+// Instructor.update({firstName: "Billy"}, {isHilarious: false})
 // 	.then(inst => {
 // 		console.log(inst);
 // 	})
@@ -101,6 +109,31 @@ Instructor.find({}) // Find multiple
 // 	})
 // 	.catch(err => {
 // 		console.log("Error updating by Id...", err);
+// 	});
+
+// Delete
+// Instructor.remove({isHilarious: false})
+// 	.then(inst => {
+// 		console.log(inst);
+// 	})
+// 	.catch(err => {
+// 		console.log("Error deleting record", err);
+// 	});
+
+// Instructor.findOneAndRemove({firstName: "Erin"})
+// 	.then(inst => {
+// 		console.log(inst);
+// 	})
+// 	.catch(err => {
+// 		console.log("Error removing single record...", err);
+// 	});
+
+// Instructor.findByIdAndRemove('5b11a33e61598f308437d571')
+// 	.then(inst => {
+// 		console.log(inst);
+// 	})
+// 	.catch(err => {
+// 		console.log("Error removing single record...", err);
 // 	});
 
 app.listen(3000, () => {
